@@ -41,8 +41,7 @@ class TranslationModel(nn.Module):
         # Output Layer
         self.out = nn.Sequential(
             nn.Linear(in_features=args.hidden_size, out_features=args.hidden_size * 4),
-            nn.GELU(),
-            nn.LayerNorm(normalized_shape=args.hidden_size * 4),
+            nn.ReLU(),
             nn.Linear(in_features=args.hidden_size * 4, out_features=args.tgt_vocab_size)
         )
 
